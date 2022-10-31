@@ -1,0 +1,10 @@
+layerfolders:
+  - "input/Default/Skin"
+  - "input/Default/Eyes"
+  - "input/Default/Mouth"
+  # optionals
+  - "input/Clothes"
+  - "input/TopHead"
+
+# the percentage of the generated pictures to save
+desiredpicturesnumber: 980
