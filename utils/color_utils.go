@@ -11,11 +11,4 @@ func ApplyColorTransformation(imagePath string) {
 		panic(err)
 	}
 	defer infile.Close()
-
-	//src, _, err := image.Decode(infile)
-	//if err != nil {
-	//	// replace this with real error handling
-	//	panic(err)
-	//}
-
 }

@@ -3,24 +3,19 @@ package model
 import (
 	"ImGollections/test"
 	"github.com/stretchr/testify/assert"
+	"path/filepath"
 	"testing"
 )
 
 func TestShouldCreateNewBaseLayer(t *testing.T) {
 
 	ind := 1
-	image, _ := NewImage(test.ZombieImgPath)
+	abs, _ := filepath.Abs(test.BaseImgPath)
+	image, _ := NewImage(abs)
 	layerImage, _ := NewLayerImage(image)
 	layer := NewLayer(ind, layerImage)
 	baseLayer := NewBaseLayer(layer)
 
-	assert.Equal(t, baseLayer.GetLayerImage().GetImagePath(), test.ZombieImgPath)
-	assert.Equal(t, baseLayer.GetLayerImage().GetRare(), false)
+	assert.Equal(t, abs, baseLayer.GetLayerImage().GetImagePath())
+	assert.Equal(t, false, baseLayer.GetLayerImage().GetRare())
 }
-
-//func TestShouldReturnErrorWhileCreatingNewBaseLayerWithNilLayer(t *testing.T) {
-//
-//	baseLayer, err := NewBaseLayer(nil)
-//	assert.NotNil(t, err)
-//	assert.Nil(t, baseLayer)
-//}

@@ -3,12 +3,14 @@ package generator
 import (
 	"ImGollections/config"
 	"ImGollections/model"
+	"ImGollections/utils"
 	"fmt"
 	"image"
 	"image/color"
 	"image/draw"
 	"image/png"
 	"os"
+	"path/filepath"
 )
 
 func Generate(folderPaths []string) error {
@@ -95,33 +97,44 @@ func generateCollection(layerMatrix [][]model.Layer) []model.Picture {
 func saveCollection(pictureList []model.Picture) error {
 
 	offset := 100
-
 	desiredModule := len(pictureList) / config.GetConfig().Desiredpicturesnumber
 
-	// https://medium.com/@arrafiv/basic-image-processing-with-go-combining-images-and-texts-8510d9214e55
+	//outputFolder := utils.GetResourcePath("output")
+	outputFolder, err := filepath.Abs(config.GetConfig().Outputfolder)
+	if err != nil {
+		panic(err)
+	}
+
+	_, err = utils.CreateDirIfNonExist(outputFolder)
+	if err != nil {
+		panic(err)
+	}
+
 	for i, pic := range pictureList {
 
-		//fmt.Printf("ITER: %d - DESIRED %d - REST: %d\n", i, config.GetConfig().Desiredpicturesnumber, i%desiredModule)
 		if i%desiredModule == 0 {
 
-			fmt.Printf("########## Generating zombie %d\n", i)
+			fmt.Printf("########## Generating picture %d\n", i)
 
 			//create image’s background
 			bgImg := image.NewRGBA(image.Rect(0, 0, 100, 100))
 			//set the background color
 			draw.Draw(bgImg, bgImg.Bounds(), &image.Uniform{C: color.Transparent}, image.Point{}, draw.Src)
 
-			//fmt.Printf("**** Adding base layer %s\n", pic.GetBaseLayer().Layer.GetLayerImage().GetImagePath())
 			// add base layer
 			addLayerToImage(bgImg, pic.GetBaseLayer().Layer)
 			// add remaining layers
 			for _, layer := range pic.GetLayerList() {
-				//fmt.Printf("**** Adding layer %s\n", layer.GetLayerImage().GetImagePath())
 				addLayerToImage(bgImg, layer)
 			}
 
+			picName := filepath.Join(outputFolder, fmt.Sprintf("pic_%d.png", i+offset))
+
 			// save img
-			savePNG(bgImg, fmt.Sprintf("/Users/firegloves/workspace/NFTGonarator/output/zombie_%d.png", i+offset))
+			err := savePNG(bgImg, picName)
+			if err != nil {
+				fmt.Println("Error generating " + picName)
+			}
 		}
 	}
 

@@ -12,5 +12,5 @@ func TestShouldGenerateCollection(t *testing.T) {
 	layerFolderList, _ := model.CreateLayerFolderList(test.LayerFolderPaths)
 	collection := generateLayerImageMatrix(layerFolderList.GetList())
 
-	assert.Equal(t, len(collection), 10)
+	assert.Equal(t, 27, len(collection))
 }

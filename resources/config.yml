@@ -1,10 +1,12 @@
 layerfolders:
-  - "input/Default/Skin"
-  - "input/Default/Eyes"
-  - "input/Default/Mouth"
+  - "resources/input/Default/Skin"
+  - "resources/input/Default/Eyes"
+  - "resources/input/Default/Mouth"
   # optionals
-  - "input/Clothes"
-  - "input/TopHead"
+  - "resources/input/Clothes"
+  - "resources/input/Hair"
 
 # the percentage of the generated pictures to save
 desiredpicturesnumber: 980
+
+outputfolder: "resources/output"

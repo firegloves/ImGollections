@@ -15,6 +15,7 @@ type Config struct {
 	Layerfolders          []string
 	ColorVariations       []string
 	Desiredpicturesnumber int
+	Outputfolder          string
 }
 
 // LoadConfig Load configuration from environment

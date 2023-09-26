@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	log.Printf("NTGGonarator started")
+	log.Printf("ImGollaction started")
 
 	config.LoadConfig()
 

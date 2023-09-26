@@ -1,10 +1,13 @@
 package test
 
-var BaseFolderImagePath = "/Users/firegloves/workspace/NFTGonarator/resources/base"
-var HatsFolderImagePath = "/Users/firegloves/workspace/NFTGonarator/resources/hats"
-var HairsFolderImagePath = "/Users/firegloves/workspace/NFTGonarator/resources/hairs"
-var LayerFolderPaths = []string{BaseFolderImagePath, HairsFolderImagePath, HatsFolderImagePath}
-var ZombieImgPath = BaseFolderImagePath + "/zombie.png"
-var Hat1ImgPath = HatsFolderImagePath + "/hat_1.png"
-var Hat2ImgPath = HatsFolderImagePath + "/rare_hat_2.png"
-var Hair1ImgPath = HairsFolderImagePath + "/hair_1.png"
+var BaseFolderImagePath = "../resources/test/base"
+var Layer1FolderImagePath = "../resources/test/layer1"
+var Layer2FolderImagePath = "../resources/test/layer2"
+var LayerFolderPaths = []string{BaseFolderImagePath, Layer2FolderImagePath, Layer1FolderImagePath}
+var BaseImgPath = BaseFolderImagePath + "/base1.png"
+var Layer11ImgPath = Layer1FolderImagePath + "/layer1_1.png"
+var Layer12ImgPath = Layer1FolderImagePath + "/layer1_2.png"
+var Layer13ImgPath = Layer1FolderImagePath + "/layer1_3.png"
+var Layer21ImgPath = Layer2FolderImagePath + "/layer2_1.png"
+var Layer22ImgPath = Layer2FolderImagePath + "/layer2_2.png"
+var Layer23ImgPath = Layer2FolderImagePath + "/layer2_3.png"

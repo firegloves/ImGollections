@@ -40,6 +40,8 @@ func newLayerFolder(folderPath string, layerIndex int) (LayerFolder, error) {
 		panic(errors.New("Received negative layer index during LayerFolder creation"))
 	}
 
+	folderPath, _ = filepath.Abs(folderPath)
+
 	isDir, err := utils.IsDir(folderPath)
 	if err != nil {
 		panic(err)

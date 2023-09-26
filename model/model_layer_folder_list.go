@@ -27,18 +27,6 @@ func newLayerFolderList(layerFolder LayerFolder, optionalLayerFolders ...LayerFo
 	}, nil
 }
 
-//// AddLayerFolder add a *LayerFolder to a LayerFolderList
-//func AddLayerFolder(layerFolderList *LayerFolderList, layerFolder *LayerFolder) (*LayerFolderList, error) {
-//
-//	if layerFolder == nil {
-//		return layerFolderList, errors.New("Received nil *LayerFolder to add. Returning the same received *LayerFolderList")
-//	}
-//
-//	firstLayerFolder := layerFolderList.GetList()[0]
-//	furtherLayerFolders := layerFolderList.GetList()[1:]
-//	return newLayerFolderList(firstLayerFolder, append(furtherLayerFolders, layerFolder)...)
-//}
-
 func (l LayerFolderList) GetList() []LayerFolder {
 	return l.list
 }
