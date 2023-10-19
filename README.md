@@ -1,6 +1,6 @@
 # ImGollection
 
-ImGollection is a tool to automate the creation os series of images starting by collections of layers.
+ImGollection is a tool to automate the creation of series of images starting by collections of layers.
 
 By providing a list of folders identifying different layers, ImGollection will produce all the combinations resulting from overlapping the various layers.
 
